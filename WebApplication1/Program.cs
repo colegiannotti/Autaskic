@@ -8,7 +8,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSqlite<ApplicationDbContext>(ApplicationDbContext.DbPath);
 
 var app = builder.Build();
-app.SeedData();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

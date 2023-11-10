@@ -25,7 +25,13 @@ namespace WebApplication1.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            Seed.RandomizeCosts();
+            for(int i = 0; i < Seed.Costs.Count; i++)
+            {
+                modelBuilder.Entity<CostModel>().HasData(Seed.Costs[i]);
+            }
+            modelBuilder.Entity<TaskModel>().HasData(Seed.Tasks[0]);
+            
         }
 
         public DbSet<TaskModel> Tasks { get; set; }

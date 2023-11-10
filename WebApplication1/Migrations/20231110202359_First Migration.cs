@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace WebApplication1.Migrations
 {
     /// <inheritdoc />
@@ -68,6 +70,28 @@ namespace WebApplication1.Migrations
                         principalTable: "Tasks",
                         principalColumn: "Id");
                 });
+
+            migrationBuilder.InsertData(
+                table: "Costs",
+                columns: new[] { "Id", "Energy", "Enjoyment", "TimeSpan" },
+                values: new object[,]
+                {
+                    { 1, 6, 9, new TimeSpan(0, 0, 15, 0, 0) },
+                    { 2, 10, 8, new TimeSpan(0, 0, 15, 0, 0) },
+                    { 3, 1, 9, new TimeSpan(0, 0, 50, 0, 0) },
+                    { 4, 1, 8, new TimeSpan(0, 0, 15, 0, 0) },
+                    { 5, 2, 2, new TimeSpan(0, 0, 45, 0, 0) },
+                    { 6, 8, 8, new TimeSpan(0, 0, 30, 0, 0) },
+                    { 7, 4, 8, new TimeSpan(0, 0, 50, 0, 0) },
+                    { 8, 6, 6, new TimeSpan(0, 0, 30, 0, 0) },
+                    { 9, 10, 6, new TimeSpan(0, 1, 0, 0, 0) },
+                    { 10, 3, 2, new TimeSpan(0, 0, 25, 0, 0) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "Id", "CostModelId", "Description", "LastCompletedDate", "Name", "Priority", "TimeOfDay", "Tolerance" },
+                values: new object[] { 1, 1, "Example Description", new DateTime(2023, 11, 10, 15, 23, 59, 1, DateTimeKind.Local).AddTicks(2493), "Example Task", 7, new TimeOnly(8, 0, 0), 5 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Steps_TaskModelId",

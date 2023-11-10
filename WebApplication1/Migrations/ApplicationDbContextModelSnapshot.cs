@@ -40,9 +40,72 @@ namespace WebApplication1.Migrations
                         new
                         {
                             Id = 1,
+                            Energy = 6,
+                            Enjoyment = 9,
+                            TimeSpan = new TimeSpan(0, 0, 15, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 2,
                             Energy = 10,
-                            Enjoyment = 5,
-                            TimeSpan = new TimeSpan(0, 0, 0, 0, 0)
+                            Enjoyment = 8,
+                            TimeSpan = new TimeSpan(0, 0, 15, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Energy = 1,
+                            Enjoyment = 9,
+                            TimeSpan = new TimeSpan(0, 0, 50, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Energy = 1,
+                            Enjoyment = 8,
+                            TimeSpan = new TimeSpan(0, 0, 15, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Energy = 2,
+                            Enjoyment = 2,
+                            TimeSpan = new TimeSpan(0, 0, 45, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Energy = 8,
+                            Enjoyment = 8,
+                            TimeSpan = new TimeSpan(0, 0, 30, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Energy = 4,
+                            Enjoyment = 8,
+                            TimeSpan = new TimeSpan(0, 0, 50, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Energy = 6,
+                            Enjoyment = 6,
+                            TimeSpan = new TimeSpan(0, 0, 30, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Energy = 10,
+                            Enjoyment = 6,
+                            TimeSpan = new TimeSpan(0, 1, 0, 0, 0)
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Energy = 3,
+                            Enjoyment = 2,
+                            TimeSpan = new TimeSpan(0, 0, 25, 0, 0)
                         });
                 });
 
@@ -94,6 +157,19 @@ namespace WebApplication1.Migrations
                     b.HasIndex("CostModelId");
 
                     b.ToTable("Tasks");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CostModelId = 1,
+                            Description = "Example Description",
+                            LastCompletedDate = new DateTime(2023, 11, 10, 15, 23, 59, 1, DateTimeKind.Local).AddTicks(2493),
+                            Name = "Example Task",
+                            Priority = 7,
+                            TimeOfDay = new TimeOnly(8, 0, 0),
+                            Tolerance = 5
+                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.StepModel", b =>
