@@ -1,0 +1,19 @@
+﻿@model CostModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form method="post" asp-action="Update">
+  <div class="form-group">
+    <label asp-for="Energy">Energy</label>
+    <input asp-for="Energy" class="form-control" placeholder="Enter energy">
+  </div>
+  <div class="form-group">
+    <label asp-for="Enjoyment">Enjoyment</label>
+    <input asp-for="Enjoyment" class="form-control" placeholder="Enter enjoyment" max="10" min="1">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

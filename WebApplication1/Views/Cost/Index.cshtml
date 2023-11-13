@@ -30,7 +30,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a asp-controller="cost" asp-action="Detail" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary" onclick="">View</a>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <a asp-controller="cost" asp-action="Update" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary" onclick="">Edit</a>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>

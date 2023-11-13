@@ -1,11 +1,14 @@
-
 using WebApplication1.Data;
+using WebApplication1.Interfaces;
+using WebApplication1.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSqlite<ApplicationDbContext>(ApplicationDbContext.DbPath);
+
+builder.Services.AddScoped<ICostRepository, CostRepository>();
 
 var app = builder.Build();
 
