@@ -12,7 +12,7 @@ namespace WebApplication1.Models
 
         [ForeignKey("CostModel")]
         public int CostModelId { get; set; }
-        public CostModel? Cost { get; set; }
+        public CostModel Cost { get; set; } = new CostModel();
         public int Priority { get; set; }
         public DateTime LastCompletedDate { get; set; }
         public int Tolerance { get; set; }
