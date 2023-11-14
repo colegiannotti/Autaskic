@@ -1,4 +1,4 @@
-﻿@model TaskModel
+﻿@model TaskBase
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -7,9 +7,9 @@
 <ul class="list-group">
     <li class="list-group-item">Name: @Model.Name</li>
     <li class="list-group-item">Description: @Model.Description</li>
-    <li class="list-group-item">Energy: @Model.Cost.Energy</li>
-    <li class="list-group-item">Enjoyment: @Model.Cost.Enjoyment</li>
-    <li class="list-group-item">Time Span: @Model.Cost.TimeSpan</li>
+    <li class="list-group-item">Energy: @Model.Energy</li>
+    <li class="list-group-item">Enjoyment: @Model.Enjoyment</li>
+    <li class="list-group-item">Time Span: @Model.TimeSpan</li>
     <li class="list-group-item">Priority: @Model.Priority</li>
     <li class="list-group-item">Last Completed Date: @Model.LastCompletedDate</li>
     <li class="list-group-item">Tolerance: @Model.Tolerance</li>

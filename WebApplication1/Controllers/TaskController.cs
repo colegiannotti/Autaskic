@@ -13,8 +13,14 @@ namespace WebApplication1.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<TaskModel> tasks = await _taskRepository.GetAllAsync();
+            IEnumerable<TaskBase> tasks = await _taskRepository.GetAllAsync();
             return View(tasks);
+        }
+
+        public async Task<IActionResult> Detail(int id)
+        {
+            TaskBase task = await _taskRepository.GetByIdAsync(id);
+            return View(task);
         }
 
         public IActionResult Create()
@@ -23,7 +29,7 @@ namespace WebApplication1.Controllers
         }
         
         [HttpPost]
-        public IActionResult Create(TaskModel task)
+        public IActionResult Create(TaskBase task)
         {
             if (!ModelState.IsValid)
             {
@@ -40,7 +46,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(int id, TaskModel task)
+        public async Task<IActionResult> Update(int id, TaskBase task)
         {
             if (!ModelState.IsValid)
             {

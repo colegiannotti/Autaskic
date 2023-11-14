@@ -2,7 +2,7 @@
 
 namespace WebApplication1.Models
 {
-    public class StepModel
+    public class Step
     {
         [Key]
         public int Id { get; set; }

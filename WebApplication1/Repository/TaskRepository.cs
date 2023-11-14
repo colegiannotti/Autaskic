@@ -13,26 +13,26 @@ namespace WebApplication1.Repository
         {
             _context = context;
         }
-        public bool Add(TaskModel model)
+        public bool Add(TaskBase entity)
         {
-            _context.Add(model);
+            _context.Add(entity);
             return Save();
         }
 
-        public bool Delete(TaskModel model)
+        public bool Delete(TaskBase entity)
         {
-            _context.Remove(model);
+            _context.Remove(entity);
             return Save();
         }
 
-        public async Task<IEnumerable<TaskModel>> GetAllAsync()
+        public async Task<IEnumerable<TaskBase>> GetAllAsync()
         {
-            return await _context.Tasks.Include("Costs").ToListAsync();
+            return await _context.Tasks.ToListAsync();
         }
 
-        public async Task<TaskModel> GetByIdAsync(int id)
+        public async Task<TaskBase> GetByIdAsync(int id)
         {
-            return await _context.Tasks.Include("Costs").FirstOrDefaultAsync(i => i.Id == id);
+            return await _context.Tasks.FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public bool Save()
@@ -41,9 +41,9 @@ namespace WebApplication1.Repository
             return saved > 0;
         }
 
-        public bool Update(TaskModel model)
+        public bool Update(TaskBase entity)
         {
-            _context.Update(model);
+            _context.Update(entity);
             return Save();
         }
     }
