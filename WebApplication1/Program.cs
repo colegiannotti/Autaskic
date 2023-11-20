@@ -8,7 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSqlite<ApplicationDbContext>(ApplicationDbContext.DbPath);
 
-builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<ITaskDailyRepository, TaskDailyRepository>();
+builder.Services.AddScoped<ITaskPeriodicRepository, TaskPeriodicRepository>();
+builder.Services.AddScoped<ITaskTransientRepository, TaskTransientRepository>();
+builder.Services.AddScoped<ITaskTransitionRepository, TaskTransitionRepository>();
 
 var app = builder.Build();
 

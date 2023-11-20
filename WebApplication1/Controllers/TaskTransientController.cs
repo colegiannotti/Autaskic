@@ -4,16 +4,16 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class TaskController : Controller
+    public class TaskTransientController : Controller
     {
-        private readonly ITaskRepository _taskRepository;
-        public TaskController(ITaskRepository taskRepository)
+        private readonly ITaskTransientRepository _taskRepository;
+        public TaskTransientController(ITaskTransientRepository taskRepository)
         {
             _taskRepository = taskRepository;
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<TaskBase> tasks = await _taskRepository.GetAllAsync();
+            IEnumerable<TaskTransient> tasks = await _taskRepository.GetAllAsync();
             return View(tasks);
         }
 
@@ -29,7 +29,7 @@ namespace WebApplication1.Controllers
         }
         
         [HttpPost]
-        public IActionResult Create(TaskBase task)
+        public IActionResult Create(TaskTransient task)
         {
             if (!ModelState.IsValid)
             {
@@ -46,7 +46,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(int id, TaskBase task)
+        public async Task<IActionResult> Update(int id, TaskTransient task)
         {
             if (!ModelState.IsValid)
             {
@@ -54,6 +54,14 @@ namespace WebApplication1.Controllers
                 return View("Update", task);
             }
             _taskRepository.Update(task);
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var entity = await _taskRepository.GetByIdAsync(id);
+            if (entity == null) { return View("Error"); }
+            _taskRepository.Delete(entity);
             return RedirectToAction("Index");
         }
     }

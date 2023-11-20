@@ -1,10 +1,8 @@
 ﻿namespace WebApplication1.Models
 {
-    public class TaskDaily
+    public class TaskDaily : TaskBase
     {
-        public int Id { get; set; }
         public bool Skippable { get; set; }
-        public virtual TaskBase Task { get; set; } = null!;
 
     }
 }

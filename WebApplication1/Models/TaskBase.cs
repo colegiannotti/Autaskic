@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using WebApplication1.Data.Enum;
 
 namespace WebApplication1.Models
 {
-    public class TaskBase
+    public abstract class TaskBase
     {
         public int Id { get; set; }
         public string Name { get; set; } = "";
@@ -15,6 +16,6 @@ namespace WebApplication1.Models
         public DateTime LastCompletedDate { get; set; }
         public int Tolerance { get; set; }
         public ICollection<Step>? Steps { get; set; }
-        public TimeOnly TimeOfDay { get; set; }
+        public TimeOnly TimeOfDay { get; set; }        
     }
 }

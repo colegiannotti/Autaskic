@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TaskBase>
+﻿@model IEnumerable<TaskTransient>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -30,8 +30,8 @@
                   <p class="card-text">Priority: @item.Priority</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <a asp-controller="task" asp-action="Detail" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary" onclick="">View</a>
-                      <a asp-controller="task" asp-action="Update" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary" onclick="">Edit</a>
+                      <a asp-controller="TaskTransient" asp-action="Detail" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary" onclick="">View</a>
+                      <a asp-controller="TaskTransient" asp-action="Update" asp-route-id="@item.Id" type="button" class="btn btn-sm btn-outline-secondary" onclick="">Edit</a>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>
@@ -40,6 +40,7 @@
             </div> 
             }
           </div>
+          <a asp-controller="TaskTransient" asp-action="Create" type="button" class="btn btn-sm btn-outline-secondary" onclick="">New</a>
         </div>
        </div>
 

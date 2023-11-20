@@ -25,11 +25,22 @@ namespace WebApplication1.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-                        
-            modelBuilder.Entity<TaskBase>().HasData(Seed.TaskSeed);
+            modelBuilder.Entity<TaskDaily>().HasData(Seed.TaskDailySeed);
+            modelBuilder.Entity<TaskPeriodic>().HasData(Seed.TaskPeriodicSeed);
+            modelBuilder.Entity<TaskTransient>().HasData(Seed.TaskTransientSeed);
+            modelBuilder.Entity<TaskTransition>().HasData(Seed.TaskTransitionSeed);
+            modelBuilder.Entity<Week>()
+                .Ignore("DayEnd")
+                .Ignore("DayStart");
         }
 
-        public DbSet<TaskBase> Tasks { get; set; }
+        public DbSet<TaskDaily> TasksDaily { get; set; }
+        public DbSet<TaskPeriodic> TasksPeriodic { get; set; }
+        public DbSet<TaskTransient> TasksTransient { get; set; }
+        public DbSet<TaskTransition> TasksTransition { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Week> Weeks { get; set; }
+        public DbSet<Day> Days { get; set; }
         public DbSet<Step> Steps { get; set; }   
     }
 }
