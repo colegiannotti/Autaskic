@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<TaskDaily> tasks = await _taskRepository.GetAllAsync();
+            IEnumerable<TaskDaily> tasks = await _taskRepository.GetAllAsyncByPriority();
             return View(tasks);
         }
 

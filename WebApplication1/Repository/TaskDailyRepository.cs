@@ -31,6 +31,12 @@ namespace WebApplication1.Repository
             return await _context.TasksDaily.ToListAsync();
         }
 
+        public async Task<IEnumerable<TaskDaily>> GetAllAsyncByPriority()
+        {
+            var result = await _context.TasksDaily.OrderBy(x => x.Priority).ToListAsync();
+            return result;
+        }
+
         public async Task<TaskDaily> GetByIdAsync(int id)
         {
             return await _context.TasksDaily.FirstOrDefaultAsync(i => i.Id == id);
